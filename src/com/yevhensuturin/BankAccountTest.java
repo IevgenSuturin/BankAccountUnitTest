@@ -49,7 +49,7 @@ public class BankAccountTest {
     @Test(expected = IllegalArgumentException.class)
     public void withdraw_notBranch_expected_exception_new_approach()  throws Exception{
             bankAccount.withdraw(600.00, false);
-           fail("Should have thown an IllegalArgumentException");
+           fail("Should have thrown an IllegalArgumentException");
     }
 
 

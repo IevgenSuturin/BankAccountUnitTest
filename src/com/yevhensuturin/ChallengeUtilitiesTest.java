@@ -15,7 +15,8 @@ public class ChallengeUtilitiesTest {
 
     @Test
     public void everyNthChar() {
-        fail("This test was not implemented!");
+        assertArrayEquals(new char[]{'e', 'l'}, utilities.everyNthChar("hello".toCharArray(), 2));
+        assertArrayEquals(new char[]{'h','e','l','l','o'}, utilities.everyNthChar("hello".toCharArray(), 8));
     }
 
     @Test
@@ -28,15 +29,27 @@ public class ChallengeUtilitiesTest {
     public void removePairs_second() {
         String input = "ABCCABDEEF";
         assertEquals("ABCABDEF", utilities.removePairs(input).intern());
+        assertNull("Did not null returned when argument passed was null", utilities.removePairs(null));
+        assertEquals("A", utilities.removePairs("A"));
+        assertEquals("", utilities.removePairs(""));
     }
 
     @Test
     public void converter() {
-        fail("This test was not implemented!");
+        assertEquals(300, utilities.converter(10, 5));
+    }
+
+    @Test(expected = ArithmeticException.class)
+    public void converterArithmeticException(){
+        utilities.converter(10, 0);
+        fail("Should have thrown an ArithmeticException");
     }
 
     @Test
     public void nullIfOddLength() {
-        fail("This test was not implemented!");
+        String even = "1111";
+        assertNotNull(utilities.nullIfOddLength(even));
+        String odd = "11111";
+        assertNull(utilities.nullIfOddLength(odd));
     }
 }

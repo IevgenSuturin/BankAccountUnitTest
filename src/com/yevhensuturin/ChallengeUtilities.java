@@ -11,7 +11,7 @@ public class ChallengeUtilities {
         int returnLength = sourceArray.length/n;
         char[] result = new char[returnLength];
         int currIndex = 0;
-        for (int i=0; i<sourceArray.length; i += n){
+        for (int i=n-1; i<sourceArray.length; i += n){
            result[currIndex++]=sourceArray[i];
         }
         return result;
@@ -20,7 +20,7 @@ public class ChallengeUtilities {
 //    Remove pairs of the same character that are next to each other
 //    by removing one occurrence of the character
     public String removePairs(String source){
-        if(source.length()<2){
+        if(source == null || source.length()<2){
             return source;
         }
 
